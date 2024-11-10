@@ -4,6 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+# number of rounds attackers and defenders have won
 a_wins=0
 d_wins=0
 
@@ -29,6 +30,7 @@ def round():
     # discard the attacker's lowest roll
     a_rolls=np.delete(a_rolls, 2)
 
+    # decide winner of round
     outcome=a_rolls>d_rolls
     if np.all(outcome)==True:
         a_wins= a_wins+1
@@ -39,15 +41,14 @@ def round():
 for _ in range (1000):
     round()
 
-
-# create labels for each section
+# create labels for each section of plot
 labels = "Attackers Win", "Defenders Win",
 results = [a_wins, d_wins]
 
 # generate pie chart with percentages labelled
 plt.pie(results, autopct='%1.1f%%')
 
-# add label and title
+# add legend
 plt.legend(labels, bbox_to_anchor=(0.75, 0, 0.5, 1))
 plt.show()
 
