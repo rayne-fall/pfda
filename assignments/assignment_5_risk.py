@@ -8,9 +8,14 @@ import matplotlib.pyplot as plt
 a_wins=0
 d_wins=0
 
+a_troops = int(input("Enter the number of attacking troops "))
+d_troops = int(input("Enter the number of defending troops "))
+
 def round():
     global a_wins
     global d_wins
+    global a_troops
+    global d_troops
    
     # make dice array
     die = np.array([i for i in range(1,7)])
@@ -34,13 +39,17 @@ def round():
     outcome=a_rolls>d_rolls
     if np.all(outcome)==True:
         a_wins= a_wins+1
+        d_troops= d_troops-1
     else:
         d_wins= d_wins+1
-  
-   
+        a_troops= a_troops-1
+
+while (a_troops >0 and d_troops >0):
+    round()
+'''
 for _ in range (1000):
     round()
-
+'''
 # create labels for each section of plot
 labels = "Attackers Win", "Defenders Win",
 results = [a_wins, d_wins]
