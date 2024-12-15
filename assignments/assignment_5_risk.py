@@ -1,5 +1,6 @@
 # risk
 # author: Sylvia Chapman Kent
+# simulates the game Risk
 
 import numpy as np
 import matplotlib.pyplot as plt
